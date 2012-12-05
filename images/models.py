@@ -14,6 +14,7 @@ class Image(models.Model):
     title = models.CharField(max_length=200)
     url = models.CharField(max_length=1000)
     tags = models.ManyToManyField(Tag)
+    up_date = models.DateTimeField('date uploaded')
     
     def __unicode__(self):
         return self.title
