@@ -32,6 +32,8 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
+LOGIN_URL = '/userInfo/login/'
+
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True
@@ -122,6 +124,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'images',
     'tagList',
+    'userInfo',
+    'portal',
 )
 
 # A sample logging configuration. The only tangible logging

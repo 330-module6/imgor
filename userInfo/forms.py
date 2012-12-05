@@ -4,8 +4,10 @@ Created on Dec 5, 2012
 @author: Mason
 '''
 from django import forms
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
+
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField(require=True)
