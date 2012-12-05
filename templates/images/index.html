@@ -1,6 +1,6 @@
 <h1>{{ image.title }}</h1>
 <h2>Currently Browsing {{ tag.name }}</h2>
-<a id="img-link" href="/image/{{ tag.id }}/{{ image.id }}"><img id="image-img" src="{{ settings.mediapath }}{{ image.url }}"/></a>
+<a id="img-link" href="/tag/{{ tag.id }}/{{ image.id }}"><img id="image-img" src="{{ settings.mediapath }}{{ image.url }}"/></a>
 <ul id="tag-list">
 {% for otag in image.tags.all %}
 	<li id="tag-{{ forloop.counter }}"><a id="tag-link-{{ forloop.counter }}" href="/tag/{{ otag.id }}/">{{ otag.name }}</a></li>    
