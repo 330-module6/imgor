@@ -5,9 +5,10 @@ from images.models import Image, Tag
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponseRedirect
 from django.template import RequestContext
+from django.db.models import Count
 
 def index(request):
-    tag_list = sorted(Tag.objects.all())
+    tag_list = (Tag.objects.all().annotate(num_items=Count('image')).order_by('-num_items'))
     return render_to_response('tagList/index.html', {'tag_list': tag_list})
     
 def listPics(request, tag_id):
