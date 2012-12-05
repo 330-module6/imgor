@@ -6,6 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^image/', include('images.urls')),
+    url(r'^$', include('tagList.urls')),
+    url(r'^tag/', include('tagList.tagUrls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

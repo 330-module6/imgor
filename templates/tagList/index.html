@@ -1,0 +1,9 @@
+{% if tag_list %}
+    <ul id="tag-list">
+    {% for tag in tag_list %}
+        <li><a href="/tag/{{ tag.id }}/">{{ tag.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tags are available.</p>
+{% endif %}

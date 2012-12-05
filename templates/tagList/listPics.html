@@ -1,0 +1,10 @@
+{% if image_list %}
+	<h1 id="title">{{ t.name }}</h1>
+    <ul id="tag-list">
+    {% for image in image_list %}
+        <li><a href="/image/{{ image.id }}/">{{ image.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No images are tagged with {{ t.name }}</p>
+{% endif %}
