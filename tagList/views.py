@@ -9,7 +9,11 @@ from django.db.models import Count
 
 def index(request):
     tag_list = (Tag.objects.all().annotate(num_items=Count('image')).order_by('-num_items'))
-    return render_to_response('tagList/index.html', {'tag_list': tag_list})
+    popular_images = Image.objects.all().order_by('-hits')[:5]
+    pop_items = []
+    for pi, pv in enumerate(popular_images):
+        pop_items.append({'rank': pi + 1, 'title': pv.title})
+    return render_to_response('tagList/index.html', {'tag_list': tag_list, 'popular_list': pop_items})
     
 def listPics(request, tag_id):
     t = get_object_or_404(Tag, pk=tag_id)
