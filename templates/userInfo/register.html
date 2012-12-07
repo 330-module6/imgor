@@ -1,0 +1,17 @@
+
+
+<head>
+    {% if success_message %}<meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">{% endif %}
+</head>
+
+<body>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <form action="/userInfo/add_user/" method="post">
+        {% csrf_token %}
+        Username:        <input type="text" name="username"><br>
+        Email:           <input type="text" name="email"><br>
+        Password:        <input type="password" name="password"><br>
+        Retype Password: <input type="password" name="confirm"><br>
+        <input type="submit" value="Register" />
+    </form>
+</body>

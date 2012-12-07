@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+<head>
+    {% if success_message %}<meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">{% endif %}
+</head>
+
+<body>
+	<div id="content">
+		{% block content %}
+		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    	<form action="/userInfo/changePW/" method="post">
+	        {% csrf_token %}
+	        Username:        <input type="text" name="username"><br>
+	        Current Password: <input type="password" name="password"><br>
+	        New Password:        <input type="password" name="newPW"><br>
+	        Retype New Password: <input type="password" name="newPWConf"><br>
+	        <input type="submit" value="Process Change" />
+	    {% endblock %}
+    </form>
+</body>

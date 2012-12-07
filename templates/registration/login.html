@@ -1,9 +1,3 @@
-{% comment %}
-
-Main page to authenticate users.
-
-{% endcomment %}
-
 {% block head %}
     <title>Imgor - Login to the Jankest Site on the Net!</title>
 {% endblock %}
@@ -20,6 +14,7 @@ Main page to authenticate users.
         {% endif %}
 
         <form method="post" action=".">
+            {% csrf_token %}
             <p>
                 <label for="id_username">Username:</label>
                 {{ form.username }}
@@ -31,9 +26,17 @@ Main page to authenticate users.
             {% if next %}
                 <input type="hidden" name="next" value="{{ next }}" />
             {% else %}
-                <input type="hidden" name="next" value="/portal/" />
+                <input type="hidden" name="next" value="/" />
             {% endif %}
             <input type="submit" value="login" />
         </form>
     </section>
+    <div id="user actions">
+        {% block user_actions %}
+        <ul>
+            <li><a href="/userInfo/register/">Join IMGOR!</a></li>
+            <li><a href="/userInfo/resetPW/">Forgot Password? COMING SOON</a></li>
+        </ul>
+        {% endblock %}
+    </div>
 {% endblock %}

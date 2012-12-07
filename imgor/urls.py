@@ -9,11 +9,10 @@ urlpatterns = patterns('',
     url(r'^$', include('tagList.urls')),
     url(r'^tag/', include('tagList.tagUrls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^portal/', include('portal.urls')),
-    url(r'^users/', include('userInfo.urls'))
+    url(r'^userInfo/', include('userInfo.urls'))
 )
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':False}),
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
 )

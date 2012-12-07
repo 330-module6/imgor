@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+	<title>{% block title %}IMGOR : WE LIek IMAGES{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{ settings.mediapath }}css/base.css"/>
+</head>
+
+<body>
+	<div id="navigation">
+		{% block navigation %}
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/userInfo/logout/">Logout</a></li>
+		</ul>
+		{% endblock %}
+	</div>
+
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+
+	<div id="footer">
+		{% block footer %}
+		<ul>
+			<li><a href="/userInfo/changePW/">Change Password</a></li>
+		</ul>
+		{% endblock %}
+	</div>
+</body>

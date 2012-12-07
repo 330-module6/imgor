@@ -1,25 +1,31 @@
-{% if tag_list %}
-	<div id="tag-list-div">
-		<h1>Tag List</h1>
-	    <ol id="tag-list">
-	    {% for tag in tag_list %}
-	        <li><a href="/tag/{{ tag.id }}/">{{ tag.name }}</a></li>
-	    {% endfor %}
-	    </ol>
-    </div>
-{% else %}
-    <p>No tags are available.</p>
-{% endif %}
+{% extends "base.html" %}
 
-{% if popular_list %}
-	<div id="popular-list-div">
-		<h1>Popular Image List</h1>
-	    <ol id="popular-list">
-	    {% for pop in popular_list %}
-	        <li><a href="/image/popular/{{ pop.rank }}">{{ pop.title }}</a></li>
-	    {% endfor %}
-	    </ol>
-    </div>
-{% else %}
-    <p>No tags are available.</p>
-{% endif %}
+<div id="content">
+	{% block content %}
+	{% if tag_list %}
+		<div id="tag-list-div">
+			<h1>Tag List</h1>
+		    <ol id="tag-list">
+		    {% for tag in tag_list %}
+		        <li><a href="/tag/{{ tag.id }}/">{{ tag.name }}</a></li>
+		    {% endfor %}
+		    </ol>
+	    </div>
+	{% else %}
+	    <p>No tags are available.</p>
+	{% endif %}
+
+	{% if popular_list %}
+		<div id="popular-list-div">
+			<h1>Popular Image List</h1>
+		    <ol id="popular-list">
+		    {% for pop in popular_list %}
+		        <li><a href="/image/popular/{{ pop.rank }}">{{ pop.title }}</a></li>
+		    {% endfor %}
+		    </ol>
+	    </div>
+	{% else %}
+	    <p>No tags are available.</p>
+	{% endif %}
+	{% endblock %}
+</div>
